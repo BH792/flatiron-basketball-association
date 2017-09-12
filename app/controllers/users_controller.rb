@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to @user
+      redirect_to new_team_path
     else
       render 'new'
     end
@@ -18,8 +18,8 @@ class UsersController < ApplicationController
   end
 
   private
-    def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
-    end
-
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
+
+end

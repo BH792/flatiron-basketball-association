@@ -3,13 +3,39 @@
   <head>
     <title>FlatironBasketballAssociation</title>
     <%= csrf_meta_tags %>
-
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+
+    <div class="nav-bar">
+      <% if !session[:user_id] %>
+        <%= link_to signup_path do %>
+          <div class="nav-bar-button">
+            <div class="nav-bar-button-text">
+              SIGNUP
+            </div>
+          </div>
+        <% end %>
+        <%= link_to login_path do %>
+        <div class="nav-bar-button">
+          <div class="nav-bar-button-text">
+            LOGIN
+          </div>
+        </div>
+        <% end %>
+      <% else %>
+        <%= link_to login_path, method: :delete do %>
+        <div class="nav-bar-button">
+          <div class="nav-bar-button-text">
+            LOGOUT
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+
     <%= yield %>
   </body>
 </html>
