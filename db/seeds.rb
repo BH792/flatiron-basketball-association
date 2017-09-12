@@ -51,3 +51,16 @@ PlayerTeam.all.each do |pt|
   player_team: pt,
   )
 end
+
+# add up all appearance points that is the game score
+PlayerTeam.all.each do |pt|
+  Appearance.create(
+  points: pt.player.ppg * .20
+  rebounds: 0,
+  assists: 0,
+  steals: 0,
+  blocks: 0,
+  game: Game.create(Time.now),
+  player_team: pt,
+  )
+end

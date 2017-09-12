@@ -1,0 +1,132 @@
+<h1>Changeup your team </h1>
+<style media="screen">
+.container {
+  width: 925px;
+  border: solid thin black;
+  margin: 0 auto;
+}
+
+.card-container {
+display: inline-block;
+margin: 25px 0 0 25px;
+position: relative;
+}
+
+.card:hover {
+box-shadow: 1px 2px 4px lightgrey;
+}
+
+input[type=checkbox] {
+opacity: 0;
+position: absolute;
+top: 5px;
+left: 5px;
+}
+
+input[type=checkbox]:checked ~ .card:first-of-type {
+border-color: #9013FE;
+}
+
+input[type=checkbox]:checked ~ .card:first-of-type div.card-title-container {
+color: white;
+background-color: #9013FE;
+}
+
+input[type=checkbox]:checked ~ .card:first-of-type td {
+border-color: #9013FE;
+}
+
+.card {
+border: solid thin lightgrey;
+width: 150px;
+border-radius: 3px;
+}
+
+label {
+z-index: 2;
+position: absolute;
+top: 0;
+left: 0;
+display: block;
+width: 150px;
+height: 100%;
+}
+
+.card-content {
+width: 150px;
+height: 100%;
+text-align: center;
+}
+
+div.card-title-container:first-of-type {
+background-color: lightgrey;
+display: table;
+height: 60px;
+width: 100%;
+}
+
+div.card-title-container:first-of-type div.card-title {
+display: table-cell;
+vertical-align: middle;
+}
+
+td {
+padding: 2px;
+border-bottom: 1px solid #ddd;
+}
+
+td.last {
+border-bottom: none;
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+}
+
+</style>
+
+<%= form_tag team_path(@team), :method => :put do %>
+  <div class="container">
+      <%= text_field_tag "team[name]", @team.name %>
+    <br>
+    <input type="submit" value="Update Team">
+  </div>
+<div class="container">
+  <% @players.each_with_index do |player, index| %>
+    <div class="card-container">
+      <input type="checkbox" class="hidden" id="<%= "player-#{index}" %>" name="team[player_ids][]" value="<%= player.id %>">
+      <div class="card">
+        <label for=<%= "player-#{index}" %>></label>
+        <div class="card-content">
+          <div class="card-title-container">
+            <div class="card-title"><%= player.name %></div>
+          </div>
+          <table>
+            <tr>
+              <td>PPG</td>
+              <td><%= player.bpg %></td>
+            </tr>
+            <tr>
+              <td>APG</td>
+              <td><%= player.bpg %></td>
+            </tr>
+            <tr>
+              <td>RPG</td>
+              <td><%= player.bpg %></td>
+            </tr>
+            <tr>
+              <td>SPG</td>
+              <td><%= player.bpg %></td>
+            </tr>
+            <tr>
+              <td class="last">BPG</td>
+              <td class="last"><%= player.bpg %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<% end %>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # resources :players
   resources :teams
   resources :games
+  post "/teams/:id", to: "team#update"
   root "application#home"
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"

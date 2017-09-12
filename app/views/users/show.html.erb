@@ -84,8 +84,8 @@ border-collapse: collapse;
 }
 
 </style>
-<h1> Welcome, <%= @user.email%>! </h1>
-
+<center><h2>Team <%= @user.teams.first.name%></h2></center>
+<center><h2>Current Lineup: </h2></center>
   <div class="container">
     <% @user.players.each_with_index do |player, index| %>
       <div class="card-container">
@@ -123,9 +123,10 @@ border-collapse: collapse;
       </div>
     <% end %>
   </div>
-<%= button_to "Edit Team", root_path, method: :get %>
+<center><%= button_to "Edit Team", edit_team_path, method: :get %>
 
 <%= form_tag games_path do %>
   <%= collection_select "", "team[id]", Team.all, :id, :name  %>
   <%= submit_tag "Challenge" %>
 <% end %>
+</center>

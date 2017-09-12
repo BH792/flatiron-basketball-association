@@ -4,6 +4,7 @@ class TeamsController < ApplicationController
 
   def new
     @players = Player.all
+    @team = Team.new
   end
 
   def create
@@ -15,6 +16,21 @@ class TeamsController < ApplicationController
       redirect_to new_team_path
     end
   end
+   def edit
+     @players = Player.all
+     @team = Team.find_by_id(params[:id])
+   end
+
+    def update
+      @team = Team.find_by_id(params[:id])
+        @team.user_id = session[:user_id]
+      if @team.update(team_params)
+        byebug
+        redirect_to user_path(session[:user_id])
+      else
+        render 'edit'
+      end
+    end
 
   private
 
