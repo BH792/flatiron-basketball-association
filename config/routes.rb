@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   # resources :players
   # resources :teams
   # resources :games
-
+  get  '/signup',  to: 'users#new'
+  post '/signup',  to: 'users#create'
 end
