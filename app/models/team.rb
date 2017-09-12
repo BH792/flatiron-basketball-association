@@ -11,4 +11,15 @@ class Team < ApplicationRecord
     end
   end
 
+
+  def self.names
+    sql = <<-SQL
+    SELECT teams.name
+    FROM teams
+    SQL
+
+    ActiveRecord::Base.connection.execute(sql).map { |x| x["name"]}
+    # Team.all.select(:name)
+    # => array of team names as strings
+  end
 end

@@ -1,1 +1,45 @@
-<h1> Welcome, <%= @user.email%>!
+<h1> Welcome, <%= @user.email%>! </h1>
+
+  <div class="container">
+    <% @user.players.each_with_index do |player, index| %>
+      <div class="card-container">
+        <input type="checkbox" class="hidden" id="<%= "player-#{index}" %>" name="team[player_ids][]" value="<%= player.id %>">
+        <div class="card">
+          <label for=<%= "player-#{index}" %>></label>
+          <div class="card-content">
+            <div class="card-title-container">
+              <div class="card-title"><%= player.name %></div>
+            </div>
+            <table>
+              <tr>
+                <td>PPG</td>
+                <td><%= player.bpg %></td>
+              </tr>
+              <tr>
+                <td>APG</td>
+                <td><%= player.bpg %></td>
+              </tr>
+              <tr>
+                <td>RPG</td>
+                <td><%= player.bpg %></td>
+              </tr>
+              <tr>
+                <td>SPG</td>
+                <td><%= player.bpg %></td>
+              </tr>
+              <tr>
+                <td class="last">BPG</td>
+                <td class="last"><%= player.bpg %></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<%= button_to "Edit Team", root_path, method: :get %>
+
+<%= form_tag games_path do %>
+  <%= collection_select "", "team[id]", Team.all, :id, :name  %>
+  <%= submit_tag "Challenge" %>
+<% end %>
