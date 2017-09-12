@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   # resources :players
   # resources :teams
   # resources :games
-
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
 end
