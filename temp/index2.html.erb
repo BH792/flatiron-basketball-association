@@ -1,0 +1,25 @@
+<div class="container">
+
+
+<div class="row">
+      <% @users.each_with_index do |user, index| %>
+        <div class="col-4">
+          <%= link_to add_path(index) do %>
+            <div class="card">
+              <div class="card-body">
+                <% if session[:ids] && session[:ids].include?(index) %>
+                  <h4 class="card-title" style="background-color: green;"> <%= user %> </h4>
+                <% else %>
+                  <h4 class="card-title"> <%= user %> </h4>
+                <% end %>
+                <p class"card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+  </div>
+
+
+
+</div>
