@@ -1,41 +1,86 @@
+<style>
+table {
+  width: 500px;
+}
 
-<center>
-<h1> Game Statistics:</h1>
-<h2>Home Team</h2>
-<%= @home_team.name %><br />
-<% @game.appearances.each do |appearance| %>
-  <% if appearance.player_team.team == @home_team %>
-    <%= appearance.player_team.player.name %>
-    Points
-    <%= appearance.points %>
-    Rebounds
-    <%= appearance.rebounds %>
-    Assists
-    <%= appearance.assists %>
-    Steals
-    <%= appearance.steals %>
-    Blocks
-    <%= appearance.blocks %>
-    <br>
-  <% end %>
-<% end %>
+.player {
+  text-align: left;
+}
 
-<br>
-<h2>Away Team</h2>
-<%= @away_team.name %><br />
-<% @game.appearances.each do |appearance| %>
-  <% if appearance.player_team.team == @away_team %>
-    <%= appearance.player_team.player.name %>
-    Points
-    <%= appearance.points %>
-    Rebounds
-    <%= appearance.rebounds %>
-    Assists
-    <%= appearance.assists %>
-    Steals
-    <%= appearance.steals %>
-    Blocks
-    <%= appearance.blocks %>
-    <br>
-  <% end %>
-<% end %>
+td.number {
+  text-align: center;
+}
+
+.team-results-container {
+  margin: 0 auto;
+}
+
+.team-results {
+  display: inline-block;
+  text-align: center;
+  margin: 0 20px;
+}
+
+</style>
+
+<div class="team-results-container">
+  <center>
+  <h1> Game Statistics:</h1>
+
+  <div class="team-results">
+    <h2>Home Team</h2>
+    <h3><%= @home_team.name %></h3>
+    <h2>Final Score:<%= " #{@game.total_points_by_team(@home_team.id)}" %></h2>
+    <table>
+      <tr>
+        <th class="player">Player</th>
+        <th>Points</th>
+        <th>Assists</th>
+        <th>Rebounds</th>
+        <th>Steals</th>
+        <th>Blocks</th>
+      </tr>
+      <% @game.appearances.each do |appearance| %>
+      <% if appearance.player_team.team == @home_team %>
+        <tr>
+          <td class="player"><%= appearance.player_team.player.name %></td>
+          <td class="number"><%= appearance.points %></td>
+          <td class="number"><%= appearance.rebounds %></td>
+          <td class="number"><%= appearance.assists %></td>
+          <td class="number"><%= appearance.steals %></td>
+          <td class="number"><%= appearance.blocks %></td>
+        </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+
+  <div class="team-results">
+    <h2>Away Team</h2>
+    <h3><%= @away_team.name %></h3>
+    <h2>Final Score:<%= " #{@game.total_points_by_team(@away_team.id)}" %></h2>
+    <table>
+      <tr>
+        <th class="player">Player</th>
+        <th>Points</th>
+        <th>Assists</th>
+        <th>Rebounds</th>
+        <th>Steals</th>
+        <th>Blocks</th>
+      </tr>
+      <% @game.appearances.each do |appearance| %>
+      <% if appearance.player_team.team == @away_team %>
+        <tr>
+          <td class="player"><%= appearance.player_team.player.name %></td>
+          <td class="number"><%= appearance.points %></td>
+          <td class="number"><%= appearance.rebounds %></td>
+          <td class="number"><%= appearance.assists %></td>
+          <td class="number"><%= appearance.steals %></td>
+          <td class="number"><%= appearance.blocks %></td>
+        </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+  </center>
+</div>
