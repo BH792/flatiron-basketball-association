@@ -1,0 +1,7 @@
+<h1> All Games </h1>
+<ol>
+  <% @games.each do |game| %>
+  <%= link_to game.date, game_path(game) %>
+  <br>
+  <% end %>
+</ol>

@@ -123,10 +123,13 @@ border-collapse: collapse;
       </div>
     <% end %>
   </div>
-<center><%= button_to "Edit Team", edit_team_path, method: :get %>
-
-<%= form_tag games_path do %>
-  <%= collection_select "", "team[id]", Team.all, :id, :name  %>
-  <%= submit_tag "Challenge" %>
-<% end %>
+<center>
+  <%= button_to "Edit Team", edit_team_path(@user.teams.first), method: :get %>
+  <br>
+  <br>
+  <%= form_tag games_path do %>
+    <%= hidden_field_tag "team[home_id]", @user.teams.first.id %>
+    <%= collection_select "", "team[away_id]", Team.all, :id, :name  %>
+    <%= submit_tag "Challenge" %>
+  <% end %>
 </center>

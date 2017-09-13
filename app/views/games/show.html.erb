@@ -1,0 +1,41 @@
+
+<center>
+<h1> Game Statistics:</h1>
+<h2>Home Team</h2>
+<%= @home_team.name %><br />
+<% @game.appearances.each do |appearance| %>
+  <% if appearance.player_team.team == @home_team %>
+    <%= appearance.player_team.player.name %>
+    Points
+    <%= appearance.points %>
+    Rebounds
+    <%= appearance.rebounds %>
+    Assists
+    <%= appearance.assists %>
+    Steals
+    <%= appearance.steals %>
+    Blocks
+    <%= appearance.blocks %>
+    <br>
+  <% end %>
+<% end %>
+
+<br>
+<h2>Away Team</h2>
+<%= @away_team.name %><br />
+<% @game.appearances.each do |appearance| %>
+  <% if appearance.player_team.team == @away_team %>
+    <%= appearance.player_team.player.name %>
+    Points
+    <%= appearance.points %>
+    Rebounds
+    <%= appearance.rebounds %>
+    Assists
+    <%= appearance.assists %>
+    Steals
+    <%= appearance.steals %>
+    Blocks
+    <%= appearance.blocks %>
+    <br>
+  <% end %>
+<% end %>
