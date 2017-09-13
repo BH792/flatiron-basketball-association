@@ -15,29 +15,5 @@ class Game < ApplicationRecord
     SQL
 
     ActiveRecord::Base.connection.execute(sql)[0][0]
-
-    # self.appearances.map do |app|
-    #   if app.player_team.team.id == team_id
-    #     app.points
-    #   end
-    # end
   end
 end
-
-[
-  {
-  "id"=>1,
-  "date"=>"2017-09-13 15:53:57.893351",
-  "points"=>14,
-  "rebounds"=>13,
-  "assists"=>6,
-  "steals"=>10,
-  "blocks"=>15,
-  "game_id"=>1,
-  "player_team_id"=>6,
-  "player_id"=>1,
-  "team_id"=>1,
-  "name"=>"Jen's First Team",
-  "user_id"=>1,
-}
-]
