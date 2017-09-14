@@ -20,7 +20,7 @@ class GamesController < ApplicationController
   end
 
   def index
-    @games = Game.all
+    @games = Game.last(9)
     @leaderboard = Team.top_five_teams
   end
 

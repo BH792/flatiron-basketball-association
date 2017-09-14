@@ -23,7 +23,7 @@
     <h2>Away Team</h2>
     <h3><%= @away_team.name %></h3>
     <h2>Final Score:<%= " #{@game.total_points_by_team(@away_team.id)}" %></h2>
-    <table>
+    <table class="game-results">
       <tr>
         <th class="player">Player</th>
         <th>Points</th>

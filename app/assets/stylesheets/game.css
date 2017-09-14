@@ -1,9 +1,20 @@
 table.game-results {
   width: 500px;
+  border-collapse: collapse;
+}
+
+table.game-results, table.game-results td, table.game-results th {
+  border: solid thin #9370DB;
+  padding: 5px;
 }
 
 table .player {
   text-align: left;
+}
+
+table.game-results th {
+  background-color: #9370DB;
+  color: white;
 }
 
 td.number {

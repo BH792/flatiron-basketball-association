@@ -1,20 +1,43 @@
 <style media="screen">
   @keyframes spin {
-  0% { transform: rotate(0deg);}
-  100% { transform: rotate(360deg);}
+    0% {
+      transform: rotate(0deg);
+    }
+    29% {
+      transform: rotate(360deg);
+    }
+    30% {
+      transform: translateY(0px) scale(1);
+    }
+    100% {
+      transform: translateY(400px) scale(0.3);
+    }
   }
 
   #basketball {
-    animation: spin 4s linear infinite;
+    animation: spin 3s linear infinite;
+  }
+
+  .basket {
+    z-index: 2;
   }
 
   .basketball-container {
-    padding: 50px;
+    padding: 30px;
     width: 400px;
     margin: 0 auto;
+  }
+
+  img {
+    position: relative;
   }
 </style>
 
 <div class="basketball-container">
-  <%= image_tag "basketball", id: "basketball", size: "300" %>
+  <center>
+    <%= image_tag "basketball", id: "basketball", size: "250" %>
+  </center>
+  <center style="z-index: 10;">
+    <%= image_tag "basketball-basket", class: "basket", size: "300x217" %>
+  </center>
 </div>
