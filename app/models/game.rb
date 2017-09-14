@@ -16,4 +16,19 @@ class Game < ApplicationRecord
 
     ActiveRecord::Base.connection.execute(sql)[0][0]
   end
+
+  def simulate_game(player_teams)
+    player_teams.each do |pt|
+      Appearance.create(
+        player_team: pt,
+        game: self,
+        points: rand(7..25),
+        rebounds: rand(0..12),
+        assists: rand(0..12),
+        steals: rand(1..4),
+        blocks: rand(1..4),
+      )
+    end
+  end
+
 end

@@ -1,0 +1,33 @@
+<div class="card-container">
+  <input type="checkbox" class="hidden" id="<%= "player-#{player_counter}" %>" name="team[player_ids][]" value="<%= player.id %>" <%= "checked" if @team_player_ids.include?(player.id) %>>
+  <div class="card card-hover">
+    <label class="card-label" for=<%= "player-#{player_counter}" %>></label>
+    <div class="card-content">
+      <div class="card-title-container">
+        <div class="card-title"><%= player.name %></div>
+      </div>
+      <table class="card-table">
+        <tr>
+          <td>PPG</td>
+          <td><%= player.ppg %></td>
+        </tr>
+        <tr>
+          <td>APG</td>
+          <td><%= player.apg %></td>
+        </tr>
+        <tr>
+          <td>RPG</td>
+          <td><%= player.rpg %></td>
+        </tr>
+        <tr>
+          <td>SPG</td>
+          <td><%= player.spg %></td>
+        </tr>
+        <tr>
+          <td class="last">BPG</td>
+          <td class="last"><%= player.bpg %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

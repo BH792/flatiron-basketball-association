@@ -1,6 +1,8 @@
-  body {
+body {
     margin: 0
   }
+
+@import url('https://fonts.googleapis.com/css?family=Courgette');
 
 .nav-bar {
   height: 60px;
@@ -18,6 +20,22 @@
   width: 100px;
   height: 60px;
   display: table;
+}
+
+.nav-bar-logo {
+  float: left;
+  color: white;
+  width: 200px;
+  height: 60px;
+  display: table;
+}
+
+.nav-bar-logo-text  {
+  font-family: 'Courgette', cursive;
+  font-size: 16pt;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
 }
 
 .nav-bar-button-text {

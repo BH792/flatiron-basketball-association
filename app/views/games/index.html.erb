@@ -1,7 +1,57 @@
-<h1> All Games </h1>
-<ol>
-  <% @games.each do |game| %>
-  <%= link_to game.date, game_path(game) %>
-  <br>
-  <% end %>
-</ol>
+<style media="screen">
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+table {
+  width: 250px;
+}
+
+th.left-align {
+  text-align: left;
+}
+
+td.number {
+  text-align: center;
+}
+
+div.two-column {
+  height: 100%;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+div {
+  border: dotted thin black;
+}
+</style>
+
+
+
+<div class="container">
+  <div class="two-column">
+    <h1> All Games </h1>
+    <ol>
+      <% @games.each do |game| %>
+      <%= link_to game.date, game_path(game) %>
+      <br>
+      <% end %>
+    </ol>
+  </div>
+
+  <div class="two-column">
+    <table>
+      <tr>
+        <th class="left-align">Team</th>
+        <th>Win Percentage</th>
+      </tr>
+      <% @leaderboard.each do |win_pct_hash| %>
+      <tr>
+        <td><%= win_pct_hash[1] %></td>
+        <td class="number"><%= win_pct_hash[0] ? win_pct_hash[0].round(2) : 0 %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

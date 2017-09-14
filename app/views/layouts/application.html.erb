@@ -10,6 +10,11 @@
   <body>
 
     <div class="nav-bar">
+    <div class="nav-bar-logo">
+      <div class="nav-bar-logo-text">
+        Flatiron Basketball
+      </div>
+    </div>
       <% if !session[:user_id] %>
         <%= link_to signup_path do %>
           <div class="nav-bar-button">
@@ -30,6 +35,20 @@
         <div class="nav-bar-button">
           <div class="nav-bar-button-text">
             LOGOUT
+          </div>
+        </div>
+        <% end %>
+        <%= link_to user_path(session[:user_id]) do %>
+        <div class="nav-bar-button">
+          <div class="nav-bar-button-text">
+            MY TEAM
+          </div>
+        </div>
+        <% end %>
+        <%= link_to games_path do %>
+        <div class="nav-bar-button">
+          <div class="nav-bar-button-text">
+            STANDINGS
           </div>
         </div>
         <% end %>

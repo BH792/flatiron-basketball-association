@@ -5,6 +5,7 @@ class TeamsController < ApplicationController
   def new
     @players = Player.all
     @team = Team.new
+    @team_player_ids = []
   end
 
   def create
@@ -19,14 +20,17 @@ class TeamsController < ApplicationController
 
   def edit
     @players = Player.all
-    @team = Team.find_by_id(params[:id])
+    @team = Team.includes(:players).find_by_id(params[:id])
+    @team_player_ids = @team.player_ids
   end
 
   def update
+
     @team = Team.find_by_id(params[:id])
     if @team.update(team_params)
       redirect_to user_path(session[:user_id])
     else
+      @players = Player.all
       render 'edit'
     end
   end

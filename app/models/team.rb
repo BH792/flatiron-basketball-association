@@ -12,6 +12,21 @@ class Team < ApplicationRecord
     end
   end
 
+  def win_percentage
+    wins + losses == 0 ? 0.00 : (wins.to_f / (wins + losses)).round(2)
+  end
+
+  def self.top_five_teams
+    sql = <<-SQL
+    SELECT (CAST(wins AS float) / (CAST(wins AS float) + CAST(losses AS float))) AS win_pct, name
+    FROM teams
+    ORDER BY win_pct DESC
+    LIMIT 5
+    SQL
+
+    ActiveRecord::Base.connection.execute(sql)
+    # returns array of hashes with key 0 being win_pct and 1 as team name
+  end
 
   def self.names
     sql = <<-SQL
