@@ -31,4 +31,17 @@ class Game < ApplicationRecord
     end
   end
 
+  def game_appearances_by_team(team_id)
+    sql = <<-SQL
+    SELECT appearances.*, players.name as player_name
+    FROM games
+    JOIN appearances on games.id = appearances.game_id
+    JOIN player_teams on appearances.player_team_id = player_teams.id
+    JOIN players on player_teams.id = players.id
+    JOIN teams on player_teams.team_id = teams.id
+    WHERE teams.id = ? AND games.id = ?
+    SQL
+
+    Appearance.find_by_sql([sql, team_id, self.id])
+  end
 end

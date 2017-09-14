@@ -12,6 +12,8 @@ class GamesController < ApplicationController
     @game = Game.find_by_id(params[:id])
     @home_team = @game.teams.uniq[0]
     @away_team = @game.teams.uniq[1]
+    @home_appearances = @game.game_appearances_by_team(@home_team.id)
+    @away_appearances = @game.game_appearances_by_team(@away_team.id)
   end
 
   def index

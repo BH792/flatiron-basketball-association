@@ -1,0 +1,21 @@
+table.game-results {
+  width: 500px;
+}
+
+table .player {
+  text-align: left;
+}
+
+td.number {
+  text-align: center;
+}
+
+.team-results-container {
+  margin: 0 auto;
+}
+
+.team-results {
+  display: inline-block;
+  text-align: center;
+  margin: 0 20px;
+}
