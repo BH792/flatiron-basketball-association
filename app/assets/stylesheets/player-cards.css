@@ -21,16 +21,16 @@ left: 5px;
 }
 
 input[type=checkbox]:checked ~ .card:first-of-type {
-border-color: #9013FE;
+border-color: #9370DB;
 }
 
 input[type=checkbox]:checked ~ .card:first-of-type div.card-title-container {
 color: white;
-background-color: #9013FE;
+background-color: #9370DB;
 }
 
 input[type=checkbox]:checked ~ .card:first-of-type td {
-border-color: #9013FE;
+border-color: #9370DB;
 }
 
 .card {

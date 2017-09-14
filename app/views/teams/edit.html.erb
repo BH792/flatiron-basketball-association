@@ -1,9 +1,10 @@
 <%= form_tag team_path(@team), :method => :put do %>
   <div class="container">
-    <h1>Change up your team </h1>
-    <%= text_field_tag "team[name]", @team.name %>
-    <br>
-    <input type="submit" value="Update Team">
+    <div class="team-form-container">
+      <h1>Change up your team </h1>
+      <%= text_field_tag "team[name]", @team.name, class: "form-field" %>
+      <input type="submit" value="Update Team" class="form-button" style="margin: 20px 0 0 127px;">
+    </div>
   </div>
 <div class="container">
   <%= render partial: "player_cards", collection: @players, as: :player %>

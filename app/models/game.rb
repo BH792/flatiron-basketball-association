@@ -29,6 +29,24 @@ class Game < ApplicationRecord
         blocks: rand(1..4),
       )
     end
+    update_team_record
+  end
+
+  def update_team_record
+    teams = self.teams.uniq
+    team_one = teams[0]
+    team_two = teams[1]
+    team_one_pts = self.total_points_by_team(team_one.id)
+    team_two_pts = self.total_points_by_team(team_two.id)
+    if team_one_pts > team_two_pts
+      team_one.wins +=1
+      team_two.losses +=1
+    elsif team_two_pts > team_one_pts
+      team_two.wins +=1
+      team_one.losses +=1
+    end
+    team_one.save
+    team_two.save
   end
 
   def game_appearances_by_team(team_id)

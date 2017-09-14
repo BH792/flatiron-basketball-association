@@ -7,7 +7,8 @@ body {
 .nav-bar {
   height: 60px;
   margin: 0;
-  position: static;
+  position: fixed;
+  z-index: 3;
   top: 0;
   left: 0;
   width: 100%;
@@ -47,4 +48,10 @@ body {
 .nav-bar-button:hover {
   background-color: white;
   color: #9370DB;
+}
+
+.nav-bar-space {
+  height: 60px;
+  width: 100%;
+  z-index: -1;
 }

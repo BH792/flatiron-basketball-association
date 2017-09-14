@@ -1,4 +1,7 @@
 class GamesController < ApplicationController
+
+  before_action :logged_in?
+
   def create
     @game = Game.new(date: Time.now)
     @home_team = Team.find_by(id: params[:team][:home_id])

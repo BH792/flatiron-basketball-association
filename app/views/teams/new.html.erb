@@ -1,9 +1,10 @@
 <%= form_tag teams_path do %>
   <div class="container">
-    <h1>Create a team of five</h1>
-    <input type="text" name="team[name]" placeholder="Team Name">
-    <br>
-    <input type="submit" value="Create Team">
+    <div class="team-form-container">
+      <h1>Create a team of five</h1>
+      <input type="text" name="team[name]" placeholder="Team Name" class="form-field">
+      <input type="submit" value="Create Team" class="form-button" style="margin-top: 20px;">
+    </div>
   </div>
 <div class="container">
   <%= render partial: "player_cards", collection: @players, as: :player %>
