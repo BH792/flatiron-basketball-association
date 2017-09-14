@@ -1,6 +1,16 @@
-<center><h2>Team <%= @user.teams.first.name%></h2></center>
-<center><h2>Current Lineup: </h2></center>
   <div class="container">
+    <div class="team-form-container" style="margin-top: 20px;">
+      <h2 style="display: inline-block; margin-bottom: 0;"><%= @user.teams.first.name%></h2>
+      <%= link_to edit_team_path(@user.teams.first) do %>
+        <div class="edit-team-button" style="margin-left: 10px;">
+          <div class="edit-team-button-text-container">
+            <div class="edit-team-button-text">
+              Edit
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
     <% @user.players.each_with_index do |player, index| %>
       <div class="card-container">
         <input type="checkbox" class="hidden" id="<%= "player-#{index}" %>" name="team[player_ids][]" value="<%= player.id %>" checked>
@@ -35,14 +45,20 @@
         </div>
       </div>
     <% end %>
+
+  <div class="team-form-container">
+    <%= form_tag games_path do %>
+      <%= hidden_field_tag "team[home_id]", @user.teams.first.id %>
+      <%= collection_select "", "team[away_id]", @playable_teams, :id, :name, {}, {class: "select-dropdown"}  %>
+    <%= button_tag type: "submit", class: "borderless-button" do %>
+      <div class="edit-team-button" style="margin-left: 10px; width: 125px;">
+        <div class="edit-team-button-text-container">
+          <div class="edit-team-button-text">
+            Challenge
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <% end %>
   </div>
-<center>
-  <%= button_to "Edit Team", edit_team_path(@user.teams.first), method: :get %>
-  <br>
-  <br>
-  <%= form_tag games_path do %>
-    <%= hidden_field_tag "team[home_id]", @user.teams.first.id %>
-    <%= collection_select "", "team[away_id]", @playable_teams, :id, :name  %>
-    <%= submit_tag "Challenge" %>
-  <% end %>
-</center>
+</div>

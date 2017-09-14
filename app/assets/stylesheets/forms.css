@@ -51,6 +51,10 @@
   box-shadow: 0 0 1px 1px #6533CB;
 }
 
+.team-form-container a:link {
+  text-decoration: none;
+}
+
 .team-form-button {
   border: none;
   width: 372px;
@@ -60,4 +64,64 @@
   color: white;
   font-size: 18pt;
   background-color: #9370DB;
+}
+
+.edit-team-button {
+  display: inline-flex;
+  align-self: flex-end;
+  position: relative;
+  right: 0;
+  border: none;
+  width: 75px;
+  height: 30px;
+  border-radius: 25px;
+  color: white;
+  font-size: 12pt;
+  background-color: #9370DB;
+}
+
+.edit-team-button-text-container {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.edit-team-button-text {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.edit-team-button:hover {
+  background-color: #6533CB;
+}
+
+.edit-team-button:focus {
+  outline: none;
+  box-shadow: 0 0 1px 1px #6533CB;
+}
+
+.select-dropdown {
+  width: 350px;
+  height: 40px;
+  border-radius: 3px;
+  border: solid thin lightgrey;
+  font-size: 16pt;
+  padding: 5px 10px 5px 10px;
+  margin: 20px 0 0 0;
+}
+
+.select-dropdown:focus {
+  outline: none;
+  box-shadow: 0 0 1px 1px #6533CB;
+}
+
+.borderless-button {
+  border: none;
+  background-color: white;
+  padding: 0;
+}
+
+.borderless-button:focus {
+  outline: none;
 }
