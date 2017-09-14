@@ -1,9 +1,8 @@
-<%= form_tag login_path do %>
-  <%= label_tag :email %>
-  <%= text_field_tag :email %>
-  <br>
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-  <br>
-  <%= submit_tag "Login" %>
-<% end %>
+<div class="form-container">
+  <h1>Signin</h1>
+  <%= form_tag login_path do %>
+    <%= email_field_tag :email,"", placeholder: "Email", class: "form-field #{'error' if @error}" %>
+    <%= password_field_tag :password,"", placeholder: "Password", class: "form-field #{'error' if @error}" %>
+    <%= submit_tag "Login", class: "form-button" %>
+  <% end %>
+</div>

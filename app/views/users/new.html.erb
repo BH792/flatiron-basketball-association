@@ -1,20 +1,13 @@
 <div class="form-container">
-  <h1>Sign up</h1>
+  <h1>Join Flatiron Basketball</h1>
   <%= form_for(@user, url: signup_path) do |f| %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  <br>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <br>
-  <%= f.label :password_confirmation, "Please retype your password" %>
-  <%= f.password_field :password_confirmation %>
-  <br>
-  <%= f.submit "Create my FBA account"%>
+  <%= f.text_field :name, placeholder: "Name", class: "form-field #{'error' if @user.errors.include?('name')}" %>
+  <%= f.email_field :email, placeholder: "Email", class: "form-field #{'error' if @user.errors.include?('email')}" %>
+  <%= f.password_field :password, placeholder: "Password", class: "form-field #{'error' if @user.errors.include?('password')}" %>
+
+
+  <%= f.submit "Signup", class: "form-button" %>
   <% end %>
   <p> Already have an account? Please <%= link_to "sign in", login_path%><p>
 </div>

@@ -6,5 +6,5 @@ class User < ApplicationRecord
   has_many :games, through: :appearances
 
   has_secure_password
-  validates :email, presence: true, uniqueness: true
+  validates :name, :email, presence: true, uniqueness: true
 end

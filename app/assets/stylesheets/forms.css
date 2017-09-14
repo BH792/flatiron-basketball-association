@@ -1,4 +1,47 @@
 .form-container {
-  display: inline-block;
-  margin: 100px auto;
+  width: 350px;
+  margin: 100px auto 0 auto;
+}
+
+.form-field {
+  width: 350px;
+  height: 40px;
+  border-radius: 3px;
+  border: solid thin lightgrey;
+  font-size: 16pt;
+  padding: 5px 10px 5px 10px;
+  margin: 20px 0 0 0;
+}
+
+.form-field.error {
+  border-color: red;
+}
+
+.form-field:focus {
+  border-color: #9370DB;
+  outline: none;
+}
+
+.form-field:focus:invalid {
+  border-color: red;
+}
+
+.form-button {
+  border: none;
+  width: 372px;
+  height: 52px;
+  margin-top: 40px;
+  border-radius: 25px;
+  color: white;
+  font-size: 18pt;
+  background-color: #9370DB;
+}
+
+.form-button:hover {
+  background-color: #6533CB;
+}
+
+.form-button:focus {
+  outline: none;
+  box-shadow: 0 0 1px 1px #6533CB;
 }
