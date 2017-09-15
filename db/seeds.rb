@@ -108,8 +108,9 @@ Player.create(
 )
 
 users = [
-  "Jen",
-  "Bob",
+  "Jennifer",
+  "Bobby",
+  "Alex",
 ]
 
 users.each do |name|
@@ -125,32 +126,3 @@ User.all.each do |user|
   team.players = Player.all.sample(5)
   team.save
 end
-
-# 1.times do
-#   Game.create(date: Time.now)
-# end
-#
-# PlayerTeam.all.each do |pt|
-#   Appearance.create(
-#   points: 10,
-#   rebounds: 10,
-#   assists: 10,
-#   steals: 10,
-#   blocks: 10,
-#   game: Game.all.first,
-#   player_team: pt,
-#   )
-# end
-
-# add up all appearance points that is the game score
-# PlayerTeam.all.each do |pt|
-#   Appearance.create(
-#   points: pt.player.ppg * 0.20,
-#   rebounds: 0,
-#   assists: 0,
-#   steals: 0,
-#   blocks: 0,
-#   game: Game.create(Time.now),
-#   player_team: pt,
-#   )
-# end
