@@ -1,9 +1,9 @@
 <div class="form-container">
   <h1>Login</h1>
   <%= form_tag login_path do %>
-  <%= flash[:danger] %>
     <%= text_field_tag :email,"", placeholder: "Email", class: "form-field #{'error' if @error}" %>
     <%= password_field_tag :password,"", placeholder: "Password", class: "form-field #{'error' if @error}" %>
     <input type="submit" name="Login" value="Login" class="form-button" id="<%= 'error-button' if @error %>">
   <% end %>
+  <p style="color: red; text-align: center; font-size: 14pt;"><%= flash[:danger] %></p>
 </div>

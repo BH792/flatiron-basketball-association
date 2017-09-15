@@ -18,6 +18,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by_id(params[:id])
     @team = @user.teams
+    if @team.empty?
+      redirect_to new_team_path
+    end
     @playable_teams = Team.all - @team
   end
 

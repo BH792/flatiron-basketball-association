@@ -4,6 +4,9 @@ class TeamsController < ApplicationController
 
   def new
     @players = Player.all
+    if User.find_by_id(session[:user_id]).teams.any?
+      redirect_to user_path(session[:user_id])
+    end
     @team = Team.new
     @team_player_ids = []
   end
@@ -26,14 +29,13 @@ class TeamsController < ApplicationController
   end
 
   def update
-
     @team = Team.find_by_id(params[:id])
     if @team.update(team_params)
       redirect_to user_path(session[:user_id])
     else
       @players = Player.all
       @team_player_ids = @team.player_ids
-      flash.now[:danger] = 'Please be sure to select EXACTLY five players.'
+      flash.now[:message] = 'Enter a team name and select five players.'
       render 'edit'
     end
   end
