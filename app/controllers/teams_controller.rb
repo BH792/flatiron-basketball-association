@@ -14,6 +14,7 @@ class TeamsController < ApplicationController
     if @team.save
       redirect_to user_path(session[:user_id])
     else
+      flash[:message] = 'Enter a team name and select five players.'
       redirect_to new_team_path
     end
   end
@@ -32,6 +33,7 @@ class TeamsController < ApplicationController
     else
       @players = Player.all
       @team_player_ids = @team.player_ids
+      flash.now[:danger] = 'Please be sure to select EXACTLY five players.'
       render 'edit'
     end
   end

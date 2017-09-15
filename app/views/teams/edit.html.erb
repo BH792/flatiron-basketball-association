@@ -1,6 +1,7 @@
 <%= form_tag team_path(@team), :method => :put do %>
   <div class="container">
     <div class="team-form-container">
+      <center><h2><%= flash[:danger] %>  </center></h2>
       <h1>Change up your team </h1>
       <%= text_field_tag "team[name]", @team.name, class: "form-field" %>
       <input type="submit" value="Update Team" class="form-button" style="margin: 20px 0 0 127px;">
