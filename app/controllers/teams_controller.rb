@@ -31,6 +31,7 @@ class TeamsController < ApplicationController
       redirect_to user_path(session[:user_id])
     else
       @players = Player.all
+      @team_player_ids = @team.player_ids
       render 'edit'
     end
   end

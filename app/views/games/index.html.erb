@@ -14,60 +14,17 @@
   </table>
 </div>
 
-<style media="screen">
-  .game-scorecard {
-    display: inline-block;
-    padding: 10px 5px;
-    width: 260px;
-    border: solid thin black;
-    margin: 25px 0 0 25px;
-    text-decoration: none;
-  }
-
-  .game-scorecard a:link {
-    text-decoration: none;
-  }
-
-  .game-scorecard div {
-    margin: 5px 5px 0 5px;
-    color: black;
-  }
-
-  .game-scorecard div.team-score {
-    display: inline-block;
-  }
-
-  .game-scorecard div.date {
-    font-size: 10pt;
-    color: grey;
-    font-style: italic;
-    height: auto;
-    width: auto;
-  }
-
-  .game-scorecard div.score {
-    font-size: 16pt;
-    font-weight: bold;
-    color: #9370DB;
-    height: auto;
-    margin: 10px 0;
-  }
-
-  .game-scorecard div.team {
-
-  }
-</style>
 <div class="container">
   <% @games.each do |game| %>
     <a href="<%= game_path(game) %>">
       <div class="game-scorecard">
         <center>
           <div class="team-score">
-            <div class="team" ><%= game.teams.uniq.first.name[0,16]%></div>
+            <div class="team" ><%= game.teams.uniq.first.name[0,15]%></div>
             <div class="score"><%= game.total_points_by_team(game.teams.uniq.first.id) %></div>
           </div>
           <div class="team-score">
-            <div class="team" ><%= game.teams.uniq.last.name[0,16]%></div>
+            <div class="team" ><%= game.teams.uniq.last.name[0,15]%></div>
             <div class="score" ><%= game.total_points_by_team(game.teams.uniq.last.id) %></div>
           </div>
           <div class="date" ><%= game.date.strftime('%B %C, %G') %></div>

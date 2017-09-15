@@ -6,7 +6,6 @@ players = [
   "Lisa Hufnagel",
   "Sophie Helf",
   "Jil Krusemann",
-  "Lauren Petersen",
   "Kevin Yonzon",
   "Suzy Cho",
   "Kenneth Jiang",
@@ -98,6 +97,16 @@ players.each do |player|
   )
 end
 
+Player.create(
+  name: "Lauren Petersen",
+position: "Center",
+ppg: 999,
+rpg: 999,
+apg: 999,
+spg: 999,
+bpg: 999,
+)
+
 users = [
   "Jen",
   "Bob",
@@ -112,7 +121,7 @@ users.each do |name|
 end
 
 User.all.each do |user|
-  team = Team.new(name: "#{user.name}'s First Team", user: user)
+  team = Team.new(name: "#{user.name}'s Team", user: user)
   team.players = Player.all[0,5]
   team.save
 end
