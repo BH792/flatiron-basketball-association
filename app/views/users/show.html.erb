@@ -127,7 +127,7 @@ label.drop-down-option {
         <% end %>
       </div>
 
-      <%= button_tag type: "submit", class: "borderless-button", data: { disable_with: "<div class='basketball-container'><img id='basketball' src='/assets/basketball.png' alt='Basketball' width='38' height='38'>
+      <%= button_tag type: "submit", class: "borderless-button", data: { disable_with: "<div class='basketball-container'><img id='basketball' src='<%= asset_path('basketball.png') %>' alt='Basketball' width='38' height='38'>
         </div>"} do %>
         <div class="edit-team-button" style="margin-left: 10px; width: 125px;">
           <div class="edit-team-button-text-container">
