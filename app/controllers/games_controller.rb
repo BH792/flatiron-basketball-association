@@ -3,12 +3,16 @@ class GamesController < ApplicationController
   before_action :logged_in?
 
   def create
-    @game = Game.new(date: Time.now)
-    @home_team = Team.find_by(id: params[:team][:home_id])
-    @away_team = Team.find_by(id: params[:team][:away_id])
-    @game.simulate_game(@home_team.player_teams + @away_team.player_teams)
-    @game.save
-    redirect_to @game
+    if params[:team][:home_id] && params[:team][:away_id]
+      @game = Game.new(date: Time.now)
+      @home_team = Team.find_by(id: params[:team][:home_id])
+      @away_team = Team.find_by(id: params[:team][:away_id])
+      @game.simulate_game(@home_team.player_teams + @away_team.player_teams)
+      @game.save
+      redirect_to @game
+    else
+      redirect_to user_path(session[:user_id])
+    end
   end
 
   def show

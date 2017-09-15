@@ -73,17 +73,21 @@ label.drop-down-option {
   display: inline-block;
   padding: 5px 10px;
   background-color: white;
-  border: solid thin #9370DB;
+  border: solid thin grey;
   border-radius: 20px;
-  color: #9370DB;
+  color: grey;
 }
 
 .challenger-selector {
-  overflow-y:hidden;
+  overflow-y: hidden;
   overflow-x: scroll;
   max-height: 50px;
   margin: 20px 0;
   white-space: nowrap;
+  width: 700px;
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px;
 }
 
 .challenger-selector input[type=radio] {
@@ -97,8 +101,13 @@ label.drop-down-option {
 }
 
 .challenger-selector input[type=radio]:checked + label {
-  background-color: #9370DB;
+  background-color: grey;
   color: white;
+}
+
+.borderless-button {
+  display: inline-block;
+  margin: 30px 0;
 }
 </style>
 
