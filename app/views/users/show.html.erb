@@ -63,20 +63,75 @@
       </div>
     <% end %>
 
+<style media="screen">
+label.drop-down-option a {
+  color: grey;
+  font-size: 10pt;
+}
+
+label.drop-down-option {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: white;
+  border: solid thin #9370DB;
+  border-radius: 20px;
+  color: #9370DB;
+}
+
+.challenger-selector {
+  overflow-y:hidden;
+  overflow-x: scroll;
+  max-height: 50px;
+  margin: 20px 0;
+  white-space: nowrap;
+}
+
+.challenger-selector input[type=radio] {
+  opacity: 0;
+  position: absolute;
+  left: 5px;
+}
+
+.horizontal {
+  display: inline;
+}
+
+.challenger-selector input[type=radio]:checked + label {
+  background-color: #9370DB;
+  color: white;
+}
+</style>
+
   <div class="team-form-container">
     <%= form_tag games_path do %>
       <%= hidden_field_tag "team[home_id]", @user.teams.first.id %>
-      <%= collection_select "", "team[away_id]", @playable_teams, :id, :name, {}, {class: "select-dropdown"}  %>
-    <%= button_tag type: "submit", class: "borderless-button", data: { disable_with: "<div class='basketball-container'><img id='basketball' src='/assets/basketball.png' alt='Basketball' width='38' height='38'>
-      </div>"} do %>
-      <div class="edit-team-button" style="margin-left: 10px; width: 125px;">
-        <div class="edit-team-button-text-container">
-          <div class="edit-team-button-text">
-            Challenge
+
+      <div class="challenger-selector" >
+        <% @playable_teams.each do |team| %>
+        <div class="horizontal">
+          <input type="radio" class="hidden" id="<%= "team-#{team.id}" %>" name="team[away_id]" value="<%= team.id %>">
+          <label for="<%= "team-#{team.id}" %>" class="drop-down-option">
+            <%= team.name %>
+            <a href="<%= challenger_path(team) %>" target="challenger_iframe">&#128270;</a>
+          </label>
+        </div>
+        <% end %>
+      </div>
+
+      <%= button_tag type: "submit", class: "borderless-button", data: { disable_with: "<div class='basketball-container'><img id='basketball' src='/assets/basketball.png' alt='Basketball' width='38' height='38'>
+        </div>"} do %>
+        <div class="edit-team-button" style="margin-left: 10px; width: 125px;">
+          <div class="edit-team-button-text-container">
+            <div class="edit-team-button-text">
+              Challenge
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
     <% end %>
   </div>
+</div>
+
+<div class="container">
+  <iframe name="challenger_iframe" src="" style="border:none;" width="925" height="210"></iframe>
 </div>

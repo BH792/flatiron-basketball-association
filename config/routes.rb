@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # resources :appearances
   # resources :players
+  get "/users/challenger/:id", to: "users#challenger", as: "challenger"
   resources :teams
   resources :games
   post "/teams/:id", to: "team#update"

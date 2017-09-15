@@ -122,7 +122,7 @@ end
 
 User.all.each do |user|
   team = Team.new(name: "#{user.name}'s Team", user: user)
-  team.players = Player.all[0,5]
+  team.players = Player.all.sample(5)
   team.save
 end
 

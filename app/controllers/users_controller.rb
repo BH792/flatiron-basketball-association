@@ -21,6 +21,12 @@ class UsersController < ApplicationController
     @playable_teams = Team.all - @team
   end
 
+  def challenger
+    @user = User.find_by_id(params[:id])
+    @team = @user.teams.first
+    render layout: false
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password)

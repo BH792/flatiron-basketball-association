@@ -13,23 +13,23 @@ position: relative;
 box-shadow: 1px 2px 4px lightgrey;
 }
 
-input[type=checkbox] {
+.card-container input[type=checkbox] {
 opacity: 0;
 position: absolute;
 top: 5px;
 left: 5px;
 }
 
-input[type=checkbox]:checked ~ .card:first-of-type {
+.card-container input[type=checkbox]:checked ~ .card:first-of-type {
 border-color: #9370DB;
 }
 
-input[type=checkbox]:checked ~ .card:first-of-type div.card-title-container {
+.card-container input[type=checkbox]:checked ~ .card:first-of-type div.card-title-container {
 color: white;
 background-color: #9370DB;
 }
 
-input[type=checkbox]:checked ~ .card:first-of-type td {
+.card-container input[type=checkbox]:checked ~ .card:first-of-type td {
 border-color: #9370DB;
 }
 
