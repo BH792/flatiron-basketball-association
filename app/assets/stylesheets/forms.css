@@ -1,3 +1,19 @@
+@keyframes shake {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(-5px);
+  }
+}
+
+#error-button {
+  animation: shake 0.2s linear 2;
+}
+
 .team-form-container {
   margin-left: 25px;
   margin-right: 25px;

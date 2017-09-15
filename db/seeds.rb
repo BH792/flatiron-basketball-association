@@ -99,12 +99,12 @@ end
 
 Player.create(
   name: "Lauren Petersen",
-position: "Center",
-ppg: 999,
-rpg: 999,
-apg: 999,
-spg: 999,
-bpg: 999,
+  position: "Center",
+  ppg: 999,
+  rpg: 999,
+  apg: 999,
+  spg: 999,
+  bpg: 999,
 )
 
 users = [

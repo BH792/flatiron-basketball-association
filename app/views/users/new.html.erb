@@ -7,7 +7,7 @@
   <%= f.password_field :password, placeholder: "Password", class: "form-field #{'error' if @user.errors.include?('password')}" %>
 
 
-  <%= f.submit "Signup", class: "form-button" %>
+  <input type="submit" name="Signup" value="Signup" class="form-button" id="<%= 'error-button' if @user.errors.any? %>">
   <% end %>
   <p> Already have an account? Please <%= link_to "sign in", login_path%><p>
 </div>

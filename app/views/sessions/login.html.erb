@@ -1,8 +1,8 @@
 <div class="form-container">
-  <h1>Signin</h1>
+  <h1>Login</h1>
   <%= form_tag login_path do %>
     <%= text_field_tag :email,"", placeholder: "Email", class: "form-field #{'error' if @error}" %>
     <%= password_field_tag :password,"", placeholder: "Password", class: "form-field #{'error' if @error}" %>
-    <%= submit_tag "Login", class: "form-button" %>
+    <input type="submit" name="Login" value="Login" class="form-button" id="<%= 'error-button' if @error %>">
   <% end %>
 </div>
